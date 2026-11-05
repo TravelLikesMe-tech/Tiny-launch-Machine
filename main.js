@@ -24,6 +24,35 @@ const FALLBACK_EMAIL = "contact@travellikesme.com";
     el.textContent = String(new Date().getFullYear());
   });
 
+  /* ---------- logo / "Back to top": #top is the sticky header, so scroll the page itself ---------- */
+  document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0 });
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
+  /* ---------- in-page links: jump straight to the target and re-check once.
+     Long smooth scrolls get cut short while lazy images / the calendar load. ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    if (!id || id === "top") return;
+    link.addEventListener("click", function (e) {
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      var go = function () { target.scrollIntoView({ behavior: "instant", block: "start" }); };
+      go();
+      setTimeout(go, 500);
+      if (history.replaceState) history.replaceState(null, "", "#" + id);
+      if (id === "query") {
+        var first = document.getElementById("f-name");
+        if (first) first.focus({ preventScroll: true });
+      }
+    });
+  });
+
   /* ---------- "Talk about this" links prefill the query form ---------- */
   var msg = document.getElementById("f-msg");
   var lastPrefill = "";
