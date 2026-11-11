@@ -1,7 +1,7 @@
 # TODO — still missing or to confirm
 
 ## KK: content to give or confirm
-- [ ] **Photos (4):** hero portrait, about / at work, factory visit, TLM bags. Placeholders marked "PHOTO COMING" are live now.
+- [x] **Images:** replaced the 4 photo placeholders with 2 AI-generated scenes + 2 drawn graphics (6 Nov 2026). No personal photos used.
 - [ ] **"Nine-figure" wording:** the site says "Close to 9 figures / close to nine-figure sales". Many readers take that as US$100M+. If you mean rupees, say so and we'll reword (e.g. "close to ₹10 crore" style), using only the number you confirm.
 - [ ] **Instagram:** the brief said @tinylaunchmachine, the intake sheet says @kk_noticed.in. The site uses **@kk_noticed.in** (from the sheet). Confirm, or send the TLM handle.
 - [ ] **WhatsApp:** using +91 98365 66665 (`wa.me/919836566665`). Confirm it's the right number for business chats.
@@ -16,7 +16,7 @@
 - [ ] **Route length:** the brief said 01–09, but tab 4 has 11 services marked Keep = Yes, so the route shows 01–11. Remove rows in tab 4 to shorten it.
 
 ## Rakesh: setup
-- [ ] Set `FORM_ENDPOINT` at the top of `main.js` (Formspree or Netlify). Until then, the form opens the visitor's email app.
-- [ ] Swap the 4 placeholder photos and update their `src` in `index.html`.
+- [x] Form endpoint set to Netlify (done by Rakesh).
+- [ ] Upload the v2 files (index.html, styles.css, assets/photos/) and delete the 4 old placeholder SVGs from assets/photos/ on the server.
 - [ ] Connect tinylaunchmachine.com + HTTPS; check the link preview image after deploy.
 - [ ] Send one test query and book/cancel one test slot.

@@ -7,7 +7,8 @@ index.html      all content and sections
 styles.css      all styling (colour tokens at the top, dark mode included)
 main.js         form handling + small behaviours (form endpoint is set at the top)
 assets/logo/    final logo, favicon, Open Graph image (do not redraw or edit)
-assets/photos/  placeholder images. Replace these with KK's real photos
+assets/photos/  about image (WebP)
+assets/video/   hero film (WebM + MP4) and its poster
 content/        the filled intake sheet the copy came from (not needed on the server)
 TODO.md         things KK still has to give or confirm
 ```
@@ -35,17 +36,17 @@ Success and error messages are already built in.
 ### 2. Booking calendar (`index.html`, section `id="book"`)
 It uses KK's Google Calendar appointment page (30-min free call). The link appears **twice** in that section: the `<iframe src>` and the "Open the booking page" fallback link. Search for `appointments/schedules` to find both. If KK switches to Calendly or Cal.com, replace both URLs.
 
-### 3. Photos (`assets/photos/`)
-Four marked placeholders are in use. Replace them with real photos (WebP or JPG, max 1600px wide, slightly warm and desaturated per DESIGN.md), then update the `src` in `index.html`:
+### 3. Images (`assets/photos/` and inline SVGs)
+KK chose not to use personal photos. The site now uses:
 
-| Placeholder | Where | Shape |
+| Image | Where | What it is |
 |---|---|---|
-| `hero-kk.svg` | Hero, right side | portrait 4:5 (cropped square on phones) |
-| `about-kk.svg` | About KK | portrait 4:5 |
-| `tlm-bags.svg` | Proof section | landscape 3:2 |
-| `factory-visit.svg` | Sourcing (dark) band | landscape 3:2 |
+| `assets/video/hero-route.*` | Hero | 17 s silent loop made in HyperFrames (source: `../TLM-hero-film/`). To change it, edit there, render, then re-encode (see CHANGES-v3.md) |
+| `assets/photos/sample-room.webp` | About | AI-generated sample room (Gemini), brand marks removed |
+| Inline `<svg class="sheet">` in `index.html` | Proof | Drawn spec sheet of a bag. Colours come from CSS, so it follows dark mode |
+| Inline `<svg class="map">` in `index.html` | Sourcing band | Drawn route chart: designers UK/India/Japan, factories India/China/Vietnam, export to USA |
 
-HEIC from iPhone: convert first, e.g. on a Mac `sips -s format jpeg -Z 1600 IMG_1234.HEIC --out hero-kk.jpg`.
+The AI images are illustrations and are never captioned as real Travel Likes Me products or factories. Keep it that way. High-res originals are in `content/source-images/` (not needed on the server). To swap an image, keep the same file name or update its `src`, `width` and `height` in `index.html`.
 
 ## Deploy
 

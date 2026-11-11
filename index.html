@@ -31,8 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
-  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="main.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -63,16 +63,22 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="label">Tiny Launch Machine · by Kaushal Sharma (KK)</p>
           <h1 class="hero__title">Start <mark>tiny.</mark><br>Launch smart.</h1>
-          <p class="lead">I've taken products from zero to one, again and again, with Travel Likes Me: from factories in India, China and Vietnam to Amazon, Flipkart, Myntra and our own store. I'll help you launch your first product without burning your savings.</p>
+          <p class="lead">Starting a D2C brand, or selling offline and ready for a new market? I've taken products from zero to one, again and again, with Travel Likes Me: from factories in India, China and Vietnam to Amazon, Flipkart, Myntra and our own store. I'll help you do it without burning your savings.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#book">Book a free 30-min call</a>
             <a class="btn btn--secondary" href="#query">Send a query</a>
           </div>
+          <p class="byline">By Kaushal Sharma (KK), Founder &amp; CEO of Travel Likes Me</p>
         </div>
-        <figure class="hero__photo">
-          <img src="assets/photos/hero-kk.svg" alt="Kaushal Sharma (KK), Founder of Tiny Launch Machine" width="800" height="1000" fetchpriority="high">
+        <figure class="hero__photo hero__film">
+          <video class="hero__video" muted loop playsinline preload="metadata" width="920" height="1150"
+            poster="assets/video/hero-route-poster.webp" aria-describedby="film-script">
+            <source src="assets/video/hero-route.webm" type="video/webm">
+            <source src="assets/video/hero-route.mp4" type="video/mp4">
+          </video>
+          <button class="film-toggle" type="button" aria-pressed="false" hidden>Pause</button>
+          <figcaption class="sr-only" id="film-script">A short animation. Just an idea? Selling offline? Both hit the same wall: what to make, where, how to sell. 01, start tiny: one sample, not a warehouse. 02, source it right: designers in the UK, India and Japan, factories in India, China and Vietnam, export to the USA. 03, launch and sell: your product live on Amazon, Flipkart, Myntra and your own store, then order number one, your first sale. Start tiny. Launch smart.</figcaption>
         </figure>
       </div>
 
@@ -101,12 +107,12 @@
     <!-- ============ WHERE ARE YOU ============ -->
     <section class="section where" aria-labelledby="where-title">
       <div class="wrap">
-        <p class="label">Start here</p>
         <h2 id="where-title">Where are you right now?</h2>
         <ol class="where__list">
           <li><a href="#step-01"><span class="where__who">I only have an idea.</span><span class="where__go">Is it worth making? Start at 01 →</span></a></li>
           <li><a href="#step-04"><span class="where__who">I have a product, but no plan.</span><span class="where__go">Source it, launch it. Start at 04 →</span></a></li>
           <li><a href="#step-07"><span class="where__who">I'm selling, but stuck.</span><span class="where__go">Ads burning, low conversion. Start at 07 →</span></a></li>
+          <li><a href="#step-06"><span class="where__who">I sell offline and want a new market.</span><span class="where__go">Take it online, or to new cities and countries. Start at 06 →</span></a></li>
         </ol>
       </div>
     </section>
@@ -115,7 +121,6 @@
     <section class="section route" id="route" aria-labelledby="route-title">
       <div class="wrap route__grid">
         <div class="route__intro">
-          <p class="label">The route · zero to one</p>
           <h2 id="route-title">Eleven stops from idea to first sales.</h2>
           <p>We start with the product, not the ads. Most new brands struggle before they sell a single unit, and rarely because of poor marketing. The wrong product gets chosen, the wrong factory gets picked, or the numbers never worked.</p>
           <p class="small muted">Join at whichever stop you're at.</p>
@@ -185,7 +190,6 @@
     <!-- ============ PROOF ============ -->
     <section class="section section--alt proof" id="proof" aria-labelledby="proof-title">
       <div class="wrap">
-        <p class="label">Proof · Travel Likes Me</p>
         <h2 id="proof-title">Most people who teach launching have studied it. We have done it.</h2>
 
         <div class="proof__grid">
@@ -193,15 +197,47 @@
             <p class="lead">At Travel Likes Me we took products from a blank page to a first order and then to scale, several times over.</p>
             <p>We chose the product, designed it with partners in the UK, India and Japan, sourced it from factories in India, China and Vietnam, then listed, launched and scaled it. Then we did it again with the next one. Some launches worked. Some cost us a lot of money. Both taught us more than any course could.</p>
             <blockquote class="honest">
-              <p class="label">The honest part</p>
+              <p class="honest__head">The honest part</p>
               <p>It was not a straight line. We burned our hands and lost a lot of money along the way. That is exactly why we are profitable today, and why we can help you avoid the mistakes that cost us.</p>
             </blockquote>
             <p><a class="quiet" href="https://travellikesme.com" target="_blank" rel="noopener">See Travel Likes Me →</a></p>
           </div>
 
-          <figure class="proof__photo">
-            <img src="assets/photos/tlm-bags.svg" alt="Travel Likes Me travel bags" width="1200" height="800" loading="lazy">
-            <figcaption class="small muted">Travel Likes Me products.</figcaption>
+          <figure class="proof__sheet">
+            <svg class="sheet" data-draw viewBox="0 0 520 540" role="img" aria-labelledby="sheet-t sheet-d">
+              <title id="sheet-t">Spec sheet drawing of a travel bag</title>
+              <desc id="sheet-d">A line drawing of a duffel bag with width and height marks and notes: zip pull colour decided, pocket only if it sells, fabric swatches tested. Stage: sample. Batch: tiny.</desc>
+              <defs>
+                <pattern id="sheet-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" class="grid"/></pattern>
+              </defs>
+              <rect x="8" y="8" width="504" height="524" fill="url(#sheet-grid)" class="frame"/>
+              <text x="32" y="48" class="t-label">Spec sheet</text>
+              <text x="488" y="48" class="t-label" text-anchor="end">Your first product</text>
+              <path d="M8 66H512" class="rule"/>
+              <path d="M210 172C210 96 310 96 310 172M226 172C226 114 294 114 294 172" pathLength="1" class="draw ln"/>
+              <path d="M110 200Q110 172 138 172H382Q410 172 410 200V312Q410 332 390 332H130Q110 332 110 312Z" pathLength="1" class="draw ln body"/>
+              <path d="M128 190H392" class="ln dash"/>
+              <rect x="386" y="184" width="14" height="24" rx="3" class="sea"/>
+              <rect x="150" y="226" width="220" height="82" rx="8" pathLength="1" class="draw ln"/>
+              <path d="M164 242H356" class="ln dash"/>
+              <path d="M110 362H410M110 354V370M410 354V370" pathLength="1" class="draw ln thin"/>
+              <text x="260" y="390" class="t-dim" text-anchor="middle">W</text>
+              <path d="M74 172V332M66 172H82M66 332H82" pathLength="1" class="draw ln thin"/>
+              <text x="52" y="258" class="t-dim" text-anchor="middle">H</text>
+              <path d="M400 192L422 176" class="ln thin"/>
+              <circle cx="432" cy="168" r="13" class="key"/><text x="432" y="173" class="t-key" text-anchor="middle">A</text>
+              <circle cx="260" cy="282" r="13" class="key"/><text x="260" y="287" class="t-key" text-anchor="middle">B</text>
+              <path d="M146 158L156 172" class="ln thin"/>
+              <circle cx="140" cy="146" r="13" class="key"/><text x="140" y="151" class="t-key" text-anchor="middle">C</text>
+              <path d="M8 404H512M260 404V532M8 446H512M8 488H512" class="rule"/>
+              <text x="24" y="422" class="t-label">A · Zip pull</text><text x="24" y="439" class="t-val">Colour decided</text>
+              <text x="24" y="464" class="t-label">B · Pocket</text><text x="24" y="481" class="t-val">Only if it sells</text>
+              <text x="24" y="506" class="t-label">C · Fabric</text><text x="24" y="523" class="t-val">Swatches tested</text>
+              <text x="276" y="422" class="t-label">Stage</text><text x="276" y="439" class="t-val">Sample</text>
+              <rect x="261" y="447" width="250" height="40" class="hl"/>
+              <text x="276" y="464" class="t-label on-hl">Batch</text><text x="276" y="481" class="t-val on-hl">Tiny</text>
+              <text x="276" y="506" class="t-label">Checked</text><text x="276" y="523" class="t-val">Demand, margin</text>
+            </svg>
           </figure>
         </div>
 
@@ -216,7 +252,7 @@
 
         <div class="markets">
           <p class="label">Where we sell now</p>
-          <ul class="tags">
+          <ul class="markets__list">
             <li>Amazon India</li><li>Amazon global</li><li>Walmart global</li><li>Flipkart</li><li>Myntra</li><li>Own D2C store</li><li>Other distribution channels</li>
           </ul>
         </div>
@@ -227,7 +263,6 @@
     <section class="section band-night sourcing" id="sourcing" aria-labelledby="sourcing-title">
       <div class="wrap sourcing__grid">
         <div>
-          <p class="label">Sourcing trips</p>
           <h2 id="sourcing-title">We'll fly with you.</h2>
           <p class="lead">Where it makes sense, we travel with you to the factory. You meet the people making your product, see the samples in person and negotiate face to face.</p>
           <ul class="sourcing__list">
@@ -238,8 +273,39 @@
           <p class="small sourcing__note">Our factory and design partners stay private. You meet them when we work together.</p>
           <a class="btn btn--lemon" href="#book" data-topic="Plan a sourcing trip">Plan a sourcing trip</a>
         </div>
-        <figure class="sourcing__photo">
-          <img src="assets/photos/factory-visit.svg" alt="Factory visit on a sourcing trip" width="1200" height="800" loading="lazy">
+        <figure class="sourcing__map">
+          <svg class="map" data-draw viewBox="0 0 720 400" role="img" aria-labelledby="map-t map-d">
+            <title id="map-t">Where we design, make and ship</title>
+            <desc id="map-d">A route chart. Designers in the UK, India and Japan. Factories in India, China and Vietnam. Exports from India to the USA.</desc>
+            <defs>
+              <pattern id="map-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1.3" class="dot"/></pattern>
+              <marker id="map-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" class="fill"/></marker>
+            </defs>
+            <rect width="720" height="400" fill="url(#map-dots)"/>
+            <path d="M270 71Q400 70 502 208" class="route fade"/>
+            <path d="M689 166Q600 120 502 208" class="route fade"/>
+            <path d="M610 241Q560 252 502 208" class="route fade"/>
+            <path d="M590 315Q520 300 502 208" class="route fade"/>
+            <path d="M502 208Q300 40 58 132" pathLength="1" class="draw route export export-main" marker-end="url(#map-arrow)"/>
+            <circle cx="270" cy="71" r="7" class="ring"/>
+            <circle cx="689" cy="166" r="7" class="ring"/>
+            <circle cx="610" cy="241" r="7" class="fill"/>
+            <circle cx="590" cy="315" r="7" class="fill"/>
+            <circle cx="502" cy="208" r="7" class="fill"/><circle cx="502" cy="208" r="13" class="ring"/>
+            <circle cx="48" cy="136" r="9" class="ring"/>
+            <text x="284" y="62" class="m-label">UK</text>
+            <text x="488" y="244" class="m-label" text-anchor="end">India</text>
+            <text x="626" y="250" class="m-label">China</text>
+            <text x="574" y="330" class="m-label" text-anchor="end">Vietnam</text>
+            <text x="704" y="146" class="m-label" text-anchor="end">Japan</text>
+            <text x="40" y="176" class="m-label">USA</text>
+            <text x="196" y="132" class="m-note" text-anchor="middle">export</text>
+            <g class="m-legend">
+              <circle cx="30" cy="356" r="7" class="fill"/><text x="46" y="362" class="m-note">Factories</text>
+              <circle cx="182" cy="356" r="7" class="ring"/><text x="198" y="362" class="m-note">Designers</text>
+              <path d="M330 356H380" class="route export"/><text x="392" y="362" class="m-note">Export</text>
+            </g>
+          </svg>
         </figure>
       </div>
     </section>
@@ -248,7 +314,6 @@
     <section class="section how" id="how" aria-labelledby="how-title">
       <div class="wrap how__grid">
         <div>
-          <p class="label">How we work</p>
           <h2 id="how-title">Research first. Stock, listings and ads after.</h2>
           <ol class="how__steps">
             <li><span><strong>Research the product:</strong> demand, competition, margins.</span></li>
@@ -275,7 +340,6 @@
     <section class="section section--alt faq" id="faq" aria-labelledby="faq-title">
       <div class="wrap faq__grid">
         <div>
-          <p class="label">Founder questions</p>
           <h2 id="faq-title">What founders ask me.</h2>
           <p class="muted">Something else on your mind? <a class="quiet" href="#query">Send me a query →</a></p>
         </div>
@@ -308,10 +372,9 @@
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="wrap about__grid">
         <figure class="about__photo">
-          <img src="assets/photos/about-kk.svg" alt="Kaushal Sharma (KK) at work" width="800" height="1000" loading="lazy">
+          <img src="assets/photos/sample-room.webp" alt="A bag sample room: a worktable with a duffel sample, cut fabric, pattern pieces and thread, sewing machines by the window" width="1264" height="848" loading="lazy">
         </figure>
         <div class="about__text">
-          <p class="label">About KK</p>
           <h2 id="about-title">I'm Kaushal Sharma.</h2>
           <p class="small muted">Founder &amp; CEO, Travel Likes Me and Tiny Launch Machine</p>
           <p>I have taken products from zero to one several times. Each time it meant choosing the product, finding the right factory, getting the design and price right, and then selling it on Amazon, Flipkart, Myntra and our own store. I have lost real money on the way, and I now know what to do first, what to skip, and which mistakes to avoid.</p>
@@ -325,7 +388,6 @@
     <!-- ============ FINAL CTA ============ -->
     <section class="section band-night final" id="book" aria-labelledby="book-title">
       <div class="wrap">
-        <p class="label">Book a call or send a query</p>
         <h2 id="book-title">Tell us what you want to make.</h2>
         <p class="lead final__lead">In a free 30-minute call, we'll tell you honestly whether it is worth making and what it would take.</p>
 
@@ -366,6 +428,7 @@
                   <option value="idea">I only have an idea</option>
                   <option value="product">I have a product</option>
                   <option value="selling">I'm selling, but stuck</option>
+                  <option value="offline">I sell offline, want a new market</option>
                 </select>
               </div>
               <div class="field">
