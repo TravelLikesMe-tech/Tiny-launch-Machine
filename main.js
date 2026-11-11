@@ -195,3 +195,61 @@ const FALLBACK_EMAIL = "contact@travellikesme.com";
       });
   });
 })();
+
+/* ---------------------------------------------------------
+   v3 motion: hero film + line drawings
+   - The film plays muted, loops, pauses when off screen or the tab is hidden,
+     and has a Pause/Play button (WCAG 2.2.2).
+   - Under prefers-reduced-motion the film does not autoplay (poster shows the
+     problem statement) and every drawing is shown finished.
+   --------------------------------------------------------- */
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ---------- hero film ---------- */
+  var video = document.querySelector(".hero__video");
+  var toggle = document.querySelector(".film-toggle");
+  if (video && toggle) {
+    var userPaused = reduce.matches;   // reduced motion = start paused
+    var onScreen = true;
+
+    function sync() {
+      var shouldPlay = !userPaused && onScreen && !document.hidden;
+      if (shouldPlay && video.paused) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays */ });
+      } else if (!shouldPlay && !video.paused) {
+        video.pause();
+      }
+      toggle.textContent = userPaused ? "Play" : "Pause";
+      toggle.setAttribute("aria-pressed", String(userPaused));
+      toggle.setAttribute("aria-label", userPaused ? "Play the animation" : "Pause the animation");
+    }
+
+    toggle.hidden = false;
+    toggle.addEventListener("click", function () { userPaused = !userPaused; sync(); });
+    document.addEventListener("visibilitychange", sync);
+    reduce.addEventListener("change", function () { userPaused = reduce.matches; sync(); });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        onScreen = entries[0].isIntersecting; sync();
+      }, { threshold: 0.2 }).observe(video);
+    }
+    sync();
+  }
+
+  /* ---------- line drawings: draw once when they come into view ---------- */
+  if (reduce.matches || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-motion");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add("is-drawn");
+      setTimeout(function () { el.classList.add("is-done"); }, 1600);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll("[data-draw]").forEach(function (el) { io.observe(el); });
+})();
